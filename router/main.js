@@ -6,6 +6,15 @@ module.exports = function(app, User)
         user.name = req.body.name;
         user.password = req.body.password;
         user.regdate = new Date(req.body.regdate);
+
+        // check req validity
+        if(!req.body["id"] || !req.body["name"] || !req.body["password"]){
+            res.json({
+                result: 0,
+                error: "invalid request"
+            });
+            return;
+        }
     
         user.save(function(err){
             if(err){
