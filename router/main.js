@@ -15,7 +15,7 @@ module.exports = function(app, User)
             });
             return;
         }
-    
+
         user.save(function(err){
             if(err){
                 console.error(err);
@@ -24,5 +24,5 @@ module.exports = function(app, User)
             }
             res.json({result: 1});
         });
-    });
+});
 }
