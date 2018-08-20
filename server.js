@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 require('date-utils');
 var dt = new Date();
 
+// define model
+var User = require('./models/user')
+
 // connect to mongodb server
 var db = mongoose.connection;
 db.on('error', console.error);
@@ -34,4 +37,4 @@ app.use(session({
     saveUninitialized: true
 }));
 
-var router = require('./router/main')(app);
+var router = require('./router/main')(app, User);
